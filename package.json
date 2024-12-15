@@ -1,0 +1,37 @@
+{
+  "name": "rocket-restaurants",
+  "version": "1.0.0",
+  "description": "Developed and maintained by Om for ready web ui requirements",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmPals/rocket_restaurants.git"
+  },
+  "keywords": [
+    "web-ui",
+    "react",
+    "parcel",
+    "js",
+    "html",
+    "css"
+  ],
+  "author": "ompals",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmPals/rocket_restaurants/issues"
+  },
+  "homepage": "https://github.com/OmPals/rocket_restaurants#readme",
+  "dependencies": {
+    "parcel": "^2.13.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}

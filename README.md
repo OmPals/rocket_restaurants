@@ -1,4 +1,4 @@
-# rocket_restaurants
+# Rocket restaurants 🚀
 
 Rocket restaurants is a basic project to satisfy any web ui requirement. You may build anything on the top of the layout it has provided.
 

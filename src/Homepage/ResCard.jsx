@@ -8,7 +8,8 @@ const BuildStarString = (ratings) => {
   return returnString;
 };
 
-const ResCard = ({ title, addr, dist, img, ratings }) => {
+const ResCard = ({ resData }) => {
+  const { title, addr, dist, img, ratings } = resData;
   return (
     <div className="res-card">
       <div className="res-card-info">
@@ -21,7 +22,7 @@ const ResCard = ({ title, addr, dist, img, ratings }) => {
         <div className="res-card-title">{title}</div>
       </div>
       <div className="res-card-sla">
-        <div className="res-card-addr">{addr}</div>
+        <div className="res-card-addr">{`📍 ${addr}`}</div>
         <div className="res-card-dist">{dist}</div>
       </div>
     </div>

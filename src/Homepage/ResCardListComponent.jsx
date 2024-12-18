@@ -16,15 +16,7 @@ const ResCardsList = () => {
   return (
     <div className="res-cards-list">
       {tempResArray.map((res) => {
-        return (
-          <ResCard
-            title={res.title}
-            addr={`📍 ${res.addr}`}
-            dist={res.dist}
-            img={res.img}
-            ratings={res.ratings}
-          />
-        );
+        return <ResCard resData={res} />;
       })}
     </div>
   );

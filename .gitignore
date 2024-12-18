@@ -1,3 +1,6 @@
 /node_modules
 /.parcel-cache
 /dist
+dummy_data.json
+dummy_data_specific.json
+/constants/base_urls.json

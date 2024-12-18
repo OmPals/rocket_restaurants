@@ -1,4 +1,4 @@
-import { siteLogo } from "../../constants/app_constants.json"
+import { siteLogo } from "../../constants/app_constants.json";
 
 const Header = () => {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOMClient from "react-dom/client";
-import Header from "./src/Homepage/HeaderComponent";
-import Footer from "./src/Homepage/FooterComponent";
-import Body from "./src/Homepage/BodyComponent";
+import Header from "./src/Homepage/Header";
+import Footer from "./src/Homepage/Footer";
+import Body from "./src/Homepage/Body";
 
 const root = ReactDOMClient.createRoot(document.getElementById("root"));
 /* 

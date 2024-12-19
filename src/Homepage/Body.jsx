@@ -1,5 +1,5 @@
-import ResCardsList from "./ResCardListComponent";
-import Search from "./SearchComponent";
+import ResCardsList from "./ResCardList";
+import Search from "./Search";
 
 const Body = () => {
   return (

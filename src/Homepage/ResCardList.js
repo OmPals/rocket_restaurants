@@ -1,5 +1,5 @@
 import { restaurants } from "../../dummy_data_specific.json";
-import { imgBaseURL } from "../../constants/base_urls.json";
+import { IMG_BASE_URL as imgBaseURL } from "../../constants/base_urls";
 import ResCard from "./ResCard";
 
 const ResCardsList = () => {
@@ -10,7 +10,7 @@ const ResCardsList = () => {
       dist: res.info?.sla.slaString,
       img: `${imgBaseURL}${res.info.cloudinaryImageId}`,
       ratings: Math.round(res.info?.avgRating),
-      id: res.id,
+      id: res.info.id,
     };
   });
 

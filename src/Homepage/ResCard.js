@@ -1,4 +1,4 @@
-import { starSymbol as star } from "../../constants/app_constants.json";
+import { STAR_SYMBOL as star } from "../../constants/app_constants";
 
 // This function has wider scope!
 const BuildStarString = (ratings) => star.repeat(Math.min(5, ratings));

@@ -10,13 +10,14 @@ const ResCardsList = () => {
       dist: res.info?.sla.slaString,
       img: `${imgBaseURL}${res.info.cloudinaryImageId}`,
       ratings: Math.round(res.info?.avgRating),
+      id: res.id,
     };
   });
 
   return (
     <div className="res-cards-list">
       {tempResArray.map((res) => {
-        return <ResCard resData={res} />;
+        return <ResCard key={res.id} resData={res} />;
       })}
     </div>
   );

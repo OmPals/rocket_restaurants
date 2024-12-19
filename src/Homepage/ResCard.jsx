@@ -1,12 +1,7 @@
 import { starSymbol as star } from "../../constants/app_constants.json";
 
 // This function has wider scope!
-const BuildStarString = (ratings) => {
-  console.log(ratings);
-  const returnString = star.repeat(Math.min(5, ratings));
-  console.log(returnString);
-  return returnString;
-};
+const BuildStarString = (ratings) => star.repeat(Math.min(5, ratings));
 
 const ResCard = ({ resData }) => {
   const { title, addr, dist, img, ratings } = resData;

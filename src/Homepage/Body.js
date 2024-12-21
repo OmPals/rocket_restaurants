@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { restaurants } from "../../dummy_data_specific.json";
 import { IMG_BASE_URL as imgBaseURL } from "../../constants/base_urls";
 import ResCard from "./ResCard";
 
 const Body = () => {
-  const tempResArray = restaurants.map((res) => {
-    return {
-      title: res.info?.name || "Restaurant name",
-      addr: res.info?.locality || "Some dummy address",
-      dist: res.info?.sla.slaString,
-      img: `${imgBaseURL}${res.info.cloudinaryImageId}`,
-      ratings: Math.round(res.info?.avgRating),
-      id: res.info.id,
-    };
-  });
-  const [restaurantsList, setRestaurantsList] = useState(tempResArray);
+  const [restaurantsList, setRestaurantsList] = useState([]);
+
+  useEffect(() => {
+    setRestaurantsList(fetchData());
+  }, []);
+
+  const fetchData = () => {
+    const tempResArray = restaurants.map((res) => {
+      return {
+        title: res.info?.name || "Restaurant name",
+        addr: res.info?.locality || "Some dummy address",
+        dist: res.info?.sla.slaString,
+        img: `${imgBaseURL}${res.info.cloudinaryImageId}`,
+        ratings: Math.round(res.info?.avgRating),
+        id: res.info.id,
+      };
+    });
+
+    return tempResArray;
+  };
 
   const filterBtnOnClick = () =>
     setRestaurantsList(tempResArray.filter((res) => res.ratings > 4));

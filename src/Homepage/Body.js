@@ -14,7 +14,8 @@ const Body = () => {
       const data = await resoponse.json();
 
       const restaurants =
-        data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
 
       const tempResArray = restaurants.map((res) => {
         return {
@@ -61,9 +62,23 @@ const Body = () => {
         </div>
       </div>
       <div className="res-cards-list">
-        {restaurantsList.map((res) => {
-          return <ResCard key={res.id} resData={res} />;
-        })}
+        {restaurantsList.length > 0
+          ? restaurantsList.map((res) => {
+              return <ResCard key={res.id} resData={res} />;
+            })
+          : // <ResCard key={"01"} resData={{}} />
+            [
+              { id: "01" },
+              { id: "02" },
+              { id: "03" },
+              { id: "04" },
+              { id: "05" },
+              { id: "06" },
+              { id: "07" },
+              { id: "08" },
+            ].map((res) => {
+              return <ResCard key={res.id} resData={res} />;
+            })}
       </div>
     </div>
   );

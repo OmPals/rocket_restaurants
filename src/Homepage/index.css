@@ -1,3 +1,13 @@
+/* The animation code */
+@keyframes ease-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -57,6 +67,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  animation-name: ease-in;
+  animation-duration: 1s;
 }
 
 .res-card:hover {
@@ -68,6 +80,17 @@
   width: 235px;
   height: 150px;
   object-fit: cover;
+}
+
+.res-card-img-shimmer {
+  width: 235px;
+  height: 150px;
+  background-color: #f0f0f0;
+}
+
+.res-card-text-shimmer {
+  height: 16px;
+  background-color: #f0f0f0;
 }
 
 .res-card-img-container {
@@ -92,7 +115,7 @@
 }
 
 .res-card-ratings {
-  padding: 5px;
+  padding: 5px 0px;
 }
 
 .res-card-info {

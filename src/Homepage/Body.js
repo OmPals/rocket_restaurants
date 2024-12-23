@@ -3,7 +3,6 @@ import { IMG_BASE_URL as imgBaseURL } from "../../constants/base_urls";
 import ResCard from "./ResCard";
 import {
   BACKEND_WITH_DYNAMIC_LAT_LONG,
-  DEBOUNCE_TIMEOUT_SEARCH,
 } from "../../constants/app_constants";
 
 const Body = () => {

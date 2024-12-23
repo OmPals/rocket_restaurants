@@ -3,7 +3,6 @@ import ReactDOMClient from "react-dom/client";
 import Header from "./src/Homepage/Header";
 import Footer from "./src/Homepage/Footer";
 import Body from "./src/Homepage/Body";
-// import Dummy from "./src/Homepage/Dummy";
 
 const root = ReactDOMClient.createRoot(document.getElementById("root"));
 /* 

@@ -31,6 +31,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Body />
+      {/* <Dummy /> */}
       <Footer />
     </div>
   );

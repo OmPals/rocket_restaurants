@@ -212,3 +212,7 @@
   background-color: #f0f0f0;
   height: 12px;
 }
+
+.is-online {
+  height: 1rem;
+}

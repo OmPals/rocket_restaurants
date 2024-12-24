@@ -114,3 +114,18 @@ export const useResMenu = ({ resId }) => {
 
   return { menuItems, resCard };
 };
+
+export const useOnline = () => {
+  const [isOnline, setIsOnline] = useState(true);
+  useEffect(() => {
+    window.addEventListener("offline", (event) => {
+      setIsOnline(false);
+    });
+
+    window.addEventListener("online", (event) => {
+      setIsOnline(true);
+    });
+  }, []);
+
+  return { isOnline };
+};

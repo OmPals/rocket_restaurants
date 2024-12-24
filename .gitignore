@@ -5,3 +5,4 @@ dummy_data.json
 dummy_data_specific.json
 /constants/base_urls.json
 /src/Home/Dummy.js
+/src/Restaurant/dummyData.js

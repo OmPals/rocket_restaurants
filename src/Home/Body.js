@@ -1,63 +1,19 @@
-import { useEffect, useState } from "react";
-import { IMG_BASE_URL as imgBaseURL } from "../../constants/base_urls";
+import { useState } from "react";
 import ResCard from "./ResCard";
-import { BACKEND_WITH_DYNAMIC_LAT_LONG } from "../../constants/app_constants";
 import { Link } from "react-router";
+import { useCurrLocation, useResList } from "../../utils/customHooks";
 
 const Body = () => {
-  const [restaurantsList, setRestaurantsList] = useState([]);
-  const [searchList, setSearchList] = useState([]);
-  const [location, setLocation] = useState({});
+  const { currLocation } = useCurrLocation();
+  const { restaurantsList, searchList, setSearchList } = useResList({
+    currLocation,
+  });
+
   const [searchText, setSearchText] = useState("");
-  useEffect(() => {
-    const fetchData = async ({ location }) => {
-      // This makes a network call.
-      const resoponse = await fetch(BACKEND_WITH_DYNAMIC_LAT_LONG(location));
 
-      // This parses a readable stream till the end.
-      const data = await resoponse.json();
-
-      // Both of the above are promises and will be dependent on the browser's callback queue.
-      // Which is why, this is being awaited.
-      const restaurants =
-        data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      const tempResArray = restaurants.map((res) => {
-        return {
-          title: res.info?.name || "Restaurant name",
-          addr: res.info?.locality || "Some dummy address",
-          dist: res.info?.sla.slaString,
-          img: `${imgBaseURL}${res.info.cloudinaryImageId}`,
-          ratings: Math.round(res.info?.avgRating),
-          id: res.info.id,
-        };
-      });
-
-      return tempResArray;
-    };
-
-    navigator.geolocation.getCurrentPosition(
-      (result) => {
-        setLocation({
-          lat: result.coords.latitude,
-          lng: result.coords.longitude,
-        });
-
-        fetchData({ location })
-          .then((result) => {
-            setRestaurantsList(result);
-            setSearchList(result.map(() => true));
-          })
-          .catch((err) => console.log("err::", err));
-      },
-      (err) => console.log("err: ", err)
-    );
-  }, []);
-
-  const filterBtnOnClick = () =>
-    setRestaurantsList(restaurantsList.filter((res) => res.ratings > 4));
-
+  const filterBtnOnClick = () => {
+    setSearchList(restaurantsList.map((res) => res.ratings > 4));
+  };
   const searchBtnOnKeyUp = () => {
     if (searchText == "") {
       setSearchList(restaurantsList.map(() => true));

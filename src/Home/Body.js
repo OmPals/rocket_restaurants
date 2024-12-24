@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { IMG_BASE_URL as imgBaseURL } from "../../constants/base_urls";
 import ResCard from "./ResCard";
-import {
-  BACKEND_WITH_DYNAMIC_LAT_LONG,
-} from "../../constants/app_constants";
+import { BACKEND_WITH_DYNAMIC_LAT_LONG } from "../../constants/app_constants";
+import { Link } from "react-router";
 
 const Body = () => {
   const [restaurantsList, setRestaurantsList] = useState([]);
@@ -93,7 +92,15 @@ const Body = () => {
           ? restaurantsList
               .filter((res, index) => searchList[index])
               .map((res) => {
-                return <ResCard key={res.id} resData={res} />;
+                return (
+                  <Link
+                    key={res.id}
+                    to={`/restaurant/${res.id}`}
+                    props={{ title: res.title }}
+                  >
+                    <ResCard resData={res} />
+                  </Link>
+                );
               })
           : [
               { id: "01" },

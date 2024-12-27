@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 const Loading = () => {
-  const [dots, setDots] = useState(1);
+  const [dots, setDots] = useState(0);
   const loadingText = "Loading";
 
   useEffect(() => {
-    let effectDots = 1;
+    let effectDots = 0;
     window.setInterval(() => {
-      setDots(effectDots++ % 4);
+      setDots(++effectDots % 4);
     }, 1000);
   }, []);
 

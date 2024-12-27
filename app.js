@@ -45,8 +45,6 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Outlet />
-      <Body />
-      {/* <Dummy /> */}
       <Footer />
     </div>
   );
@@ -75,5 +73,3 @@ const appRouter = createBrowserRouter([
 ]);
 
 root.render(<RouterProvider router={appRouter} />);
-
-// root.render(<AppLayout />);

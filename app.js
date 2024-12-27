@@ -1,12 +1,22 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOMClient from "react-dom/client";
 import Header from "./src/Home/Header";
 import Footer from "./src/Home/Footer";
 import Body from "./src/Home/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
-import About from "./src/About/About";
 import Error from "./src/Error/error";
 import Menu from "./src/Restaurant/Menu";
+import Loading from "./src/Loading/Loading";
+
+const About = lazy(() => import("./src/About/About"));
+
+const SuspendComponent = ({ Component }) => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Component />
+    </Suspense>
+  );
+};
 
 const root = ReactDOMClient.createRoot(document.getElementById("root"));
 /* 
@@ -35,7 +45,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Outlet />
-      {/* <Body /> */}
+      <Body />
       {/* <Dummy /> */}
       <Footer />
     </div>
@@ -53,7 +63,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        Component: About,
+        Component: () => <SuspendComponent Component={About} />,
       },
       {
         path: "/restaurant/:resId",

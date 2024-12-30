@@ -5,10 +5,13 @@ const Loading = () => {
   const loadingText = "Loading";
 
   useEffect(() => {
-    let effectDots = 0;
-    window.setInterval(() => {
-      setDots(++effectDots % 4);
+    const interval = window.setInterval(() => {
+      setDots((dots) => (dots + 1) % 4);
     }, 1000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
   }, []);
 
   return (

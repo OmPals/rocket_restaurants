@@ -39,4 +39,18 @@ const ResCard = ({ resData }) => {
   );
 };
 
+// Higher order component
+// Takes a component as input and returns a component
+export const withEnhancementsResCard = (ResCard) => {
+  return (props) => {
+    // Any additional enhancements are written here
+    return (
+      <>
+        <label className="pure-veg-label">Pure veg</label>
+        <ResCard {...props} />;
+      </>
+    );
+  };
+};
+
 export default ResCard;

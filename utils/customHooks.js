@@ -54,6 +54,7 @@ export const useResList = ({ currLocation }) => {
           img: `${imgBaseURL}${res.info.cloudinaryImageId}`,
           ratings: Math.round(res.info?.avgRating),
           id: res.info.id,
+          veg: res.info.veg,
         };
       });
 

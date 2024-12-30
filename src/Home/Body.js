@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ResCard from "./ResCard";
+import ResCard, { withEnhancementsResCard } from "./ResCard";
 import { Link } from "react-router";
 import { useCurrLocation, useResList } from "../../utils/customHooks";
 
@@ -10,6 +10,9 @@ const Body = () => {
   });
 
   const [searchText, setSearchText] = useState("");
+
+  // Higher order component
+  const ResCardEnhanced = withEnhancementsResCard(ResCard);
 
   const filterBtnOnClick = () => {
     setSearchList(restaurantsList.map((res) => res.ratings > 4));
@@ -54,7 +57,11 @@ const Body = () => {
                     to={`/restaurant/${res.id}`}
                     props={{ title: res.title }}
                   >
-                    <ResCard resData={res} />
+                    {res.veg ? (
+                      <ResCardEnhanced resData={res} />
+                    ) : (
+                      <ResCard resData={res} />
+                    )}
                   </Link>
                 );
               })

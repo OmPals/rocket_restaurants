@@ -220,3 +220,11 @@
 .is-online {
   height: 1rem;
 }
+
+.pure-veg-label {
+  position: absolute;
+  margin: 2px;
+  padding: 2px;
+  background-color: green;
+  color: white;
+}

@@ -26,7 +26,6 @@ export const useCurrLocation = () => {
       setCurrLocation({ lat: 0, lng: 0 });
     };
   }, []);
-  console.log("currLocation::: ", currLocation);
   return { currLocation };
 };
 
@@ -44,7 +43,6 @@ export const useResList = ({ currLocation }) => {
       // This parses a readable stream till the end.
       const data = await resoponse.json();
 
-      console.log("data::: ", data);
       // Both of the above are promises and will be dependent on the browser's callback queue.
       // Which is why, this is being awaited.
       const restaurants =
@@ -75,7 +73,6 @@ export const useResList = ({ currLocation }) => {
       setRestaurantsList([]);
     };
   }, [currLocation]);
-  console.log(restaurantsList);
 
   return { restaurantsList, searchList, setSearchList };
 };

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ResCard, { withEnhancementsResCard } from "./ResCard";
 import { Link } from "react-router";
 import { useCurrLocation, useResList } from "../../utils/customHooks";
+import UserContext from "../../utils/UserContext";
 
 const Body = () => {
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   const { currLocation } = useCurrLocation();
   const { restaurantsList, searchList, setSearchList } = useResList({
     currLocation,
@@ -29,6 +31,10 @@ const Body = () => {
     }
   };
 
+  const handleUserNameChange = (e) => {
+    setLoggedInUser(e.target.value);
+  };
+
   return (
     <div className="body">
       <div className="search-container">
@@ -44,6 +50,14 @@ const Body = () => {
         <button onClick={searchBtnOnKeyUp}>Search</button>
         <div>
           <span className="search-icon">🔍</span>
+        </div>
+        <div>
+          <input
+            type="text"
+            value={loggedInUser}
+            className="border border-black p-2"
+            onChange={handleUserNameChange}
+          />
         </div>
       </div>
       <div className="res-cards-list">

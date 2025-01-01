@@ -1,9 +1,13 @@
 import { SITE_LOGO as siteLogo } from "../../constants/app_constants";
 import { Link } from "react-router";
 import { useOnline } from "../../utils/customHooks";
+import { useContext } from "react";
+import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   const { isOnline } = useOnline();
+  const { loggedInUser } = useContext(UserContext);
+
   return (
     <div>
       <div
@@ -25,6 +29,7 @@ const Header = () => {
             </li>
             {/* .data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info.category */}
             {/* <li>🛒</li> */}
+            <li>{loggedInUser}</li>
           </ul>
         </div>
       </div>

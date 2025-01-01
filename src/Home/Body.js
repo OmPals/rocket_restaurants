@@ -54,6 +54,7 @@ const Body = () => {
                 return (
                   <Link
                     key={res.id}
+                    // to={`/restaurant/accordian/${res.id}`}
                     to={`/restaurant/${res.id}`}
                     props={{ title: res.title }}
                   >

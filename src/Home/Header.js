@@ -14,7 +14,7 @@ const Header = () => {
         <div className="logo-container">
           <img className="logo" src={siteLogo}></img>
         </div>
-        <h1 className="app-title">Rocket restaurants 🚀</h1>
+        <h1 className="app-title">Restaurants 🚀</h1>
         <div className="nav-items">
           <ul>
             <li>

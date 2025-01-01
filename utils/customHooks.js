@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { items as dummyItems, dummyResCard } from "../src/Restaurant/dummyData";
+import {
+  items as dummyItems,
+  dummyResCard,
+  dummyDataCategories,
+  dummyMenuData,
+} from "../src/Restaurant/dummyData";
 import { BACKEND_WITH_DYNAMIC_LAT_LONG } from "../constants/app_constants";
 import { IMG_BASE_URL as imgBaseURL } from "../constants/base_urls";
 
@@ -129,4 +134,24 @@ export const useOnline = () => {
   }, []);
 
   return { isOnline };
+};
+
+export const useResMenuAccordian = ({ resId }) => {
+  const [resCard, setResCard] = useState({});
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetchData({ resId });
+  }, []);
+
+  const fetchData = async ({ resId }) => {
+    // comment the below code amd uncomment the api data behaviour
+    const resCardObj = dummyResCard.card.card;
+    const categories = dummyMenuData;
+
+    setCategories(categories);
+    setResCard(resCardObj);
+  };
+
+  return { resCard, categories };
 };

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOMClient from "react-dom/client";
 import Header from "./src/Home/Header";
 import Footer from "./src/Home/Footer";
@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Error from "./src/Error/error";
 import Menu from "./src/Restaurant/Menu";
 import Loading from "./src/Loading/Loading";
+import UserContext from "./utils/UserContext";
 
 const About = lazy(() => import("./src/About/About"));
 
@@ -41,12 +42,15 @@ Footer
 */
 
 const AppLayout = () => {
+  const [loggedInUser, setLoggedInUser] = useState("Om Palsanawala");
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      {/* <Footer /> */}
-    </div>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        {/* <Footer /> */}
+      </div>
+    </UserContext.Provider>
   );
 };
 

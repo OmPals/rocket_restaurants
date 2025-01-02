@@ -10,8 +10,6 @@ const Menu = () => {
   const { resId } = useParams();
   const { categories, resCard } = useResMenuAccordian({ resId });
 
-  console.log("categories::: ", categories);
-
   return (
     <div className="menu">
       {resCard != {} ? (

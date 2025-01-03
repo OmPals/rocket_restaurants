@@ -3,10 +3,15 @@ import { Link } from "react-router";
 import { useOnline } from "../../utils/customHooks";
 import { useContext } from "react";
 import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const { isOnline } = useOnline();
   const { loggedInUser } = useContext(UserContext);
+
+  // Subscribing to the selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log("cartItems::: ", cartItems);
 
   return (
     <div>
@@ -28,7 +33,9 @@ const Header = () => {
               <Link to="/about">About us</Link>
             </li>
             {/* .data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info.category */}
-            {/* <li>🛒</li> */}
+            <li className="font-bold px-4 text-xl">
+              <Link to="/cart">🛒 {cartItems.length} items</Link>
+            </li>
             <li>{loggedInUser}</li>
           </ul>
         </div>

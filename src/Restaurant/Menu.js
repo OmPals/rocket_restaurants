@@ -25,6 +25,7 @@ const Menu = () => {
       {categories.map((menu, index) => {
         return (
           <Category
+            key={menu.category.id}
             id={menu.category.id}
             title={menu.category.title}
             items={menu.items}

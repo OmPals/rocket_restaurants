@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/Slices/cartSlice";
+
 const Item = ({ menuItem }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (menuItem) => {
+    dispatch(addItem(menuItem));
+  };
+
   return (
     <div key={menuItem.id} className="item-container">
       <div className="item-details">
@@ -24,6 +33,12 @@ const Item = ({ menuItem }) => {
         <div className="item-desc">{menuItem.description}</div>
       </div>
       <div className="item-img-container">
+        <button
+          onClick={() => handleAddItem(menuItem)}
+          className="border border-black rounded-lg bg-green-400 absolute top-0 right-0"
+        >
+          + Add
+        </button>
         <img
           src={menuItem.img}
           className="item-img"

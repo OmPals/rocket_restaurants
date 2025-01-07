@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "../../utils/Slices/cartSlice";
 
-const Item = ({ menuItem }) => {
+const Item = ({ menuItem, index }) => {
   const dispatch = useDispatch();
 
   const handleAddItem = (menuItem) => {
@@ -35,6 +35,7 @@ const Item = ({ menuItem }) => {
       <div className="item-img-container">
         <button
           onClick={() => handleAddItem(menuItem)}
+          data-testid={`menuitem-add-to-cart-btn`}
           className="border border-black rounded-lg bg-green-400 absolute top-0 right-0"
         >
           + Add

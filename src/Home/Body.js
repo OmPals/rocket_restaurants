@@ -46,8 +46,9 @@ const Body = () => {
           className="search-component"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          data-testid="search-input"
         ></input>
-        <button onClick={searchBtnOnKeyUp}>Search</button>
+        <button data-testid="search-btn" onClick={searchBtnOnKeyUp}>Search</button>
         <div>
           <span className="search-icon">🔍</span>
         </div>
@@ -60,7 +61,7 @@ const Body = () => {
           />
         </div>
       </div>
-      <div className="res-cards-list">
+      <div className="res-cards-list" data-testid="res-cards-list">
         {restaurantsList.length > 0
           ? restaurantsList
               .filter((res, index) => searchList[index])

@@ -36,7 +36,7 @@ const Header = () => {
             <li>
               <Link to="/about">About us</Link>
             </li>
-            <li className="font-bold px-4 text-xl">
+            <li data-testid="cart-btn" className="font-bold px-4 text-xl">
               <Link to="/cart">🛒 {cartItems.length} items</Link>
             </li>
             <li>{loggedInUser}</li>

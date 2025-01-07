@@ -7,7 +7,7 @@ const BuildStarString = (ratings) =>
 const ResCard = ({ resData }) => {
   const { title, addr, dist, img, ratings } = resData;
   return (
-    <div className="res-card">
+    <div className="res-card" data-testid="res-card">
       <div className="res-card-info">
         <div className="res-card-ratings">
           {ratings ? (

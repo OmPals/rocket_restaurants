@@ -1,4 +1,9 @@
 # Restaurants 🚀
+Clone this project on your local system. 
+Go to the project directory and run 
+```
+npm i
+``` 
 
 ### Start this project
 ```
